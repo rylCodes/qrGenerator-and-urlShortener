@@ -1,0 +1,26 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>QR Code and URL Shortener Generator</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+		<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+	</head>
+
+	<body class="">
+		<div class="container flex items-center h-20 min-w-full bg-slate-200">
+
+		</div>
+
+		<div>{% block pageContent %}{% endblock pageContent %}</div>
+
+		<div class="container flex items-center h-20 min-w-full bg-gray-900 mt-12">
+
+		</div>
+		<script src="{% static 'js/script.js' %}"></script>
+	</body>
+</html>

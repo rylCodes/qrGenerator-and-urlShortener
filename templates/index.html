@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pageContent %}
+    <div class="max-w-6xl mx-auto">
+        <!--Header-->
+        <div class="py-2 px-4 items-center mt-12">
+            <h1 class="text-5xl font-bold text-gray-900">QR Code Generator and URL Shortener</h1>
+        </div>
+        <!--Flex Container-->
+        <div class="container flex flex-col justify-between items-center px-4 mt-8 mx-auto space-y-8 space-x-0 md:flex-row md:space-y-0 md:space-x-12 md:items-start">
+            <div class="flex flex-col pb-6 px-4 py-2 mx-auto w-full border-2 border-gray-900 rounded md:w-1/2">
+                <form id="" action="" method="POST">
+                    {% csrf_token %}
+                    <p class="mt-4 text-3xl font-bold text-gray-900">Paste your link here:</p>
+                    <input class="mt-4 min-w-full" type="text" name="link" id="link" required placeholder="sample-link.com.ph">
+                    <p class="mt-4 text-3xl font-bold text-gray-900">Enter a url alias:</p>
+                    <input class="mt-4 min-w-full" type="text" name="alias" id="alias" placeholder="url-alias">
+                    <button class="mt-4 py-2 px-4 rounded bg-gray-900 font-bold text-white hover:bg-gray-800" type="submit">Generate</button>
+                </form>
+                   
+            </div>
+    
+            <div class="flex flex-col mx-auto mt-6 h-auto w-full border-2 border-gray-900 rounded md:w-1/2">
+                <div class="items-center px-4 py-2">
+                    <p class="mt-4 text-3xl font-bold text-gray-900">Your generated QR Code</p>
+                    <div class="border-2 p-4 h-auto mt-4 w-full">
+                        {% for obj in qr_obj %}
+                        <img class="" src="{{ obj.qr_code.url }}" alt="">
+                        {% endfor %}
+                    </div>
+                    <div class="border-2 p-4 h-auto mt-4 w-full">
+                        <p id="shorten-url"></p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock pageContent %}
